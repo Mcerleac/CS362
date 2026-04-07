@@ -1,6 +1,12 @@
-const { argv } = require('node:process');
+const figlet = require("figlet");
 
-// print process.argv
-argv.forEach((val, index) => {
-  console.log(`${index}: ${val}`);
+const input = process.argv[2];
+
+figlet(input, function(err, data) {
+	if (err) {
+		console.log("Something went wrong");
+		console.dir(err);
+		return;
+	}
+	console.log(data);
 });
